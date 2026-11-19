@@ -1,0 +1,365 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model agenda_counter {
+  tahun          Int @id
+  nomor_terakhir Int @default(0)
+}
+
+/// Penghitung nomor surat keluar, terpisah dari agenda surat masuk.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model keluar_counter {
+  tahun          Int @id
+  nomor_terakhir Int @default(0)
+}
+
+model audit_logs {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id     String?  @db.Uuid
+  action      String   @db.VarChar(50)
+  entity_type String   @db.VarChar(100)
+  entity_id   String?  @db.Uuid
+  description String?
+  created_at  DateTime @default(now()) @db.Timestamptz(6)
+  users       users?   @relation(fields: [user_id], references: [id], onUpdate: NoAction)
+
+  @@index([entity_type, entity_id, created_at(sort: Desc)], map: "idx_audit_entity")
+  @@index([created_at(sort: Desc)], map: "idx_audit_time")
+  @@index([user_id, created_at(sort: Desc)], map: "idx_audit_user")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model disposisi {
+  id                   String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  surat_id             String      @db.Uuid
+  tanggal_disposisi    DateTime    @db.Date
+  pemberi_disposisi    String      @db.VarChar(200)
+  penerima_disposisi   String?     @db.VarChar(200)
+  isi_disposisi        String
+  status_tindak_lanjut String      @default("belum") @db.VarChar(40)
+  catatan              String?
+  created_by           String?     @db.Uuid
+  created_at           DateTime    @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime    @default(now()) @db.Timestamptz(6)
+  tanggal_diteruskan   DateTime?   @db.Date
+  users                users?      @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  surat_masuk          surat_masuk @relation(fields: [surat_id], references: [id], onUpdate: NoAction)
+
+  @@index([penerima_disposisi], map: "idx_disposisi_penerima")
+  @@index([status_tindak_lanjut], map: "idx_disposisi_status")
+  @@index([surat_id], map: "idx_disposisi_surat")
+  @@index([tanggal_disposisi(sort: Desc)], map: "idx_disposisi_tanggal")
+  @@index([tanggal_diteruskan(sort: Desc)], map: "idx_disposisi_tanggal_diteruskan")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model jadwal_rapat {
+  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  surat_id             String?                @db.Uuid
+  agenda_rapat         String                 @db.VarChar(300)
+  penyelenggara        String?                @db.VarChar(200)
+  tanggal_mulai        DateTime               @db.Timestamptz(6)
+  tanggal_selesai      DateTime?              @db.Timestamptz(6)
+  tempat               String?                @db.VarChar(300)
+  tautan_rapat         String?
+  catatan              String?
+  status_rapat         String                 @default("terjadwal") @db.VarChar(30)
+  terbit               Boolean                @default(true)
+  created_by           String?                @db.Uuid
+  created_at           DateTime               @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime               @default(now()) @db.Timestamptz(6)
+  users                users?                 @relation(fields: [created_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  surat_masuk          surat_masuk?           @relation(fields: [surat_id], references: [id], onUpdate: NoAction)
+  peserta_rapat        peserta_rapat[]
+  riwayat_jadwal_rapat riwayat_jadwal_rapat[]
+  pemberitahuan_peserta pemberitahuan_peserta[]
+
+  @@index([agenda_rapat(ops: raw("gin_trgm_ops"))], map: "idx_rapat_agenda_trgm", type: Gin)
+  @@index([tanggal_mulai], map: "idx_rapat_mulai")
+  @@index([status_rapat], map: "idx_rapat_status")
+  @@index([surat_id], map: "idx_rapat_surat")
+}
+
+model jenis_surat {
+  id          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama        String        @unique @db.VarChar(100)
+  arah        String        @default("masuk") @db.VarChar(10)
+  aktif       Boolean       @default(true)
+  surat_masuk surat_masuk[]
+  surat_keluar surat_keluar[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model lampiran_surat {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  surat_id    String      @db.Uuid
+  nama_asli   String      @db.VarChar(255)
+  path_file   String
+  mime_type   String      @db.VarChar(100)
+  ukuran_byte BigInt
+  uploaded_by String?     @db.Uuid
+  created_at  DateTime    @default(now()) @db.Timestamptz(6)
+  surat_masuk surat_masuk @relation(fields: [surat_id], references: [id], onUpdate: NoAction)
+  users       users?      @relation(fields: [uploaded_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@index([surat_id], map: "idx_lampiran_surat")
+}
+
+model peserta_rapat {
+  id              String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  rapat_id        String       @db.Uuid
+  nama_peserta    String       @db.VarChar(200)
+  instansi_bidang String?      @db.VarChar(200)
+  keterangan      String?
+  jadwal_rapat    jadwal_rapat @relation(fields: [rapat_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([rapat_id], map: "idx_peserta_rapat")
+}
+
+/// Catatan saat peserta ditambahkan ke agenda dari web: dibaca aplikasi Android lewat /api/pemberitahuan
+/// dan dijadikan notifikasi untuk akun yang namanya cocok longgar dengan nama_peserta.
+model pemberitahuan_peserta {
+  id           String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  rapat_id     String       @db.Uuid
+  nama_peserta String       @db.VarChar(200)
+  oleh         String       @db.VarChar(150)
+  created_at   DateTime     @default(now()) @db.Timestamptz(6)
+  jadwal_rapat jadwal_rapat @relation(fields: [rapat_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([rapat_id], map: "idx_pemberitahuan_peserta_rapat")
+  @@index([created_at], map: "idx_pemberitahuan_peserta_created")
+}
+
+model riwayat_jadwal_rapat {
+  id                   String       @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  rapat_id             String       @db.Uuid
+  tanggal_mulai_lama   DateTime     @db.Timestamptz(6)
+  tanggal_selesai_lama DateTime?    @db.Timestamptz(6)
+  tanggal_mulai_baru   DateTime     @db.Timestamptz(6)
+  tanggal_selesai_baru DateTime?    @db.Timestamptz(6)
+  alasan_perubahan     String?
+  changed_by           String?      @db.Uuid
+  changed_at           DateTime     @default(now()) @db.Timestamptz(6)
+  users                users?       @relation(fields: [changed_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  jadwal_rapat         jadwal_rapat @relation(fields: [rapat_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([rapat_id, changed_at(sort: Desc)], map: "idx_riwayat_rapat")
+}
+
+model roles {
+  id          String  @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String  @unique @db.VarChar(50)
+  description String?
+  users       users[]
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model surat_masuk {
+  id                    String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nomor_agenda          String           @unique @db.VarChar(50)
+  tanggal_terima        DateTime         @db.Date
+  pengirim              String           @db.VarChar(200)
+  nomor_surat           String?          @db.VarChar(150)
+  tanggal_surat         DateTime?        @db.Date
+  perihal               String           @db.VarChar(500)
+  isi_ringkas           String?
+  jenis_surat_id        String?          @db.Uuid
+  status_undangan_rapat String           @default("belum") @db.VarChar(20)
+  status_surat          String           @default("belum_disposisi") @db.VarChar(30)
+  created_by            String?          @db.Uuid
+  updated_by            String?          @db.Uuid
+  created_at            DateTime         @default(now()) @db.Timestamptz(6)
+  updated_at            DateTime         @default(now()) @db.Timestamptz(6)
+  deleted_at            DateTime?        @db.Timestamptz(6)
+  disposisi             disposisi[]
+  jadwal_rapat          jadwal_rapat[]
+  lampiran_surat        lampiran_surat[]
+  surat_keluar_asal     surat_keluar[]         @relation("surat_keluar_asal")
+  created_by_user       users?           @relation("surat_created_by", fields: [created_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  jenis_surat           jenis_surat?     @relation(fields: [jenis_surat_id], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  updated_by_user       users?           @relation("surat_updated_by", fields: [updated_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@index([jenis_surat_id], map: "idx_surat_jenis")
+  @@index([nomor_surat], map: "idx_surat_nomor_surat")
+  @@index([pengirim], map: "idx_surat_pengirim")
+  @@index([perihal(ops: raw("gin_trgm_ops"))], map: "idx_surat_perihal_trgm", type: Gin)
+  @@index([status_surat, status_undangan_rapat], map: "idx_surat_status")
+  @@index([tanggal_surat], map: "idx_surat_tanggal_surat")
+  @@index([tanggal_terima(sort: Desc)], map: "idx_surat_tanggal_terima")
+}
+
+model users {
+  id                   String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name                 String                 @db.VarChar(150)
+  email                String                 @unique @db.VarChar(190)
+  password_hash        String
+  role_id              String                 @db.Uuid
+  is_active            Boolean                @default(true)
+  created_at           DateTime               @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime               @default(now()) @db.Timestamptz(6)
+  audit_logs           audit_logs[]
+  disposisi            disposisi[]
+  jadwal_rapat         jadwal_rapat[]
+  lampiran_surat       lampiran_surat[]
+  lampiran_keluar      lampiran_keluar[]      @relation("lampiran_keluar_uploaded_by")
+  riwayat_jadwal_rapat riwayat_jadwal_rapat[]
+  surat_created_by     surat_masuk[]          @relation("surat_created_by")
+  surat_updated_by     surat_masuk[]          @relation("surat_updated_by")
+  keluar_created_by    surat_keluar[]         @relation("keluar_created_by")
+  keluar_updated_by    surat_keluar[]         @relation("keluar_updated_by")
+  api_token            api_token[]
+  roles                roles                  @relation(fields: [role_id], references: [id], onUpdate: NoAction)
+
+  @@index([role_id], map: "idx_users_role")
+}
+
+// Token aplikasi Android: yang tersimpan adalah hash SHA-256 token, bukan token aslinya.
+model api_token {
+  id             String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  user_id        String    @db.Uuid
+  token_hash     String    @unique @db.Text
+  perangkat      String?   @db.VarChar(60)
+  created_at     DateTime  @default(now()) @db.Timestamptz(6)
+  terakhir_pakai DateTime? @db.Timestamptz(6)
+  expires_at     DateTime  @db.Timestamptz(6)
+  updated_at     DateTime  @default(now()) @db.Timestamptz(6)
+  users          users     @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: NoAction)
+
+  @@index([user_id, expires_at], map: "idx_api_token_user")
+}
+
+// Kunci layar monitor. Satu baris aktif; kunci lama disimpan sebagai riwayat dengan aktif = false.
+// Kalau tabel kosong, aplikasi memakai MONITOR_TOKEN dari .env sebagai kunci awal.
+model monitor_token {
+  id          String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  token       String    @unique @db.Text
+  aktif       Boolean   @default(true)
+  dibuat_pada DateTime  @default(now()) @db.Timestamptz(6)
+  dibuat_oleh String?   @db.Uuid
+  updated_at  DateTime  @default(now()) @db.Timestamptz(6)
+}
+
+model master_pejabat {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama       String   @unique @db.VarChar(200)
+  jabatan    String?  @db.VarChar(120)
+  aktif      Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([aktif, nama], map: "idx_master_pejabat_aktif")
+}
+
+model master_pengirim {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama       String   @unique @db.VarChar(200)
+  aktif      Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([aktif, nama], map: "idx_master_pengirimaktif")
+}
+
+/// Daftar tujuan surat keluar (instansi atau orang) — dropdown tujuan pada form surat keluar.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model master_penerima {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama       String   @unique @db.VarChar(200)
+  jenis      String   @default("unit") @db.VarChar(10)
+  aktif      Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([aktif, jenis, nama], map: "idx_master_penerima_aktif")
+}
+
+model master_pegawai {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama       String   @unique @db.VarChar(200)
+  jabatan    String?  @db.VarChar(120)
+  aktif      Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([aktif, nama], map: "idx_master_pegawai_aktif")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model master_terusan {
+  id         String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nama       String   @unique @db.VarChar(200)
+  jenis      String   @default("unit") @db.VarChar(10)
+  aktif      Boolean  @default(true)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
+  updated_at DateTime @default(now()) @db.Timestamptz(6)
+
+  @@index([aktif, jenis, nama], map: "idx_master_terusan_aktif")
+}
+
+/// Data pokok surat keluar. nomor_surat dibuat otomatis oleh next_nomor_keluar(tahun) dan boleh
+/// dikoreksi petugas; surat_asal_id menautkan surat ke surat masuk yang dibalas.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model surat_keluar {
+  id                   String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  nomor_surat          String      @unique @db.VarChar(150)
+  tanggal_surat        DateTime    @db.Date
+  tujuan               String      @db.VarChar(200)
+  perihal              String      @db.VarChar(500)
+  isi_ringkas          String?
+  jenis_surat_id       String?     @db.Uuid
+  surat_asal_id        String?     @db.Uuid
+  status_surat         String      @default("draf") @db.VarChar(20)
+  status_sebelum_arsip String?     @db.VarChar(20)
+  tanggal_kirim        DateTime?   @db.Timestamptz(6)
+  catatan              String?
+  created_by           String?     @db.Uuid
+  updated_by           String?     @db.Uuid
+  created_at           DateTime    @default(now()) @db.Timestamptz(6)
+  updated_at           DateTime    @default(now()) @db.Timestamptz(6)
+  deleted_at           DateTime?   @db.Timestamptz(6)
+  lampiran_keluar      lampiran_keluar[]
+  jenis_surat          jenis_surat? @relation(fields: [jenis_surat_id], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  surat_masuk          surat_masuk? @relation("surat_keluar_asal", fields: [surat_asal_id], references: [id], onUpdate: NoAction)
+  created_by_user      users?       @relation("keluar_created_by", fields: [created_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+  updated_by_user      users?       @relation("keluar_updated_by", fields: [updated_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@index([tanggal_surat(sort: Desc)], map: "idx_keluar_tanggal")
+  @@index([tujuan], map: "idx_keluar_tujuan")
+  @@index([perihal(ops: raw("gin_trgm_ops"))], map: "idx_keluar_perihal_trgm", type: Gin)
+  @@index([jenis_surat_id], map: "idx_keluar_jenis")
+  @@index([surat_asal_id], map: "idx_keluar_asal")
+  @@index([status_surat], map: "idx_keluar_status")
+}
+
+/// Lampiran surat keluar, berkasnya di folder uploads yang sama dengan lampiran surat masuk.
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model lampiran_keluar {
+  id          String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  surat_id    String      @db.Uuid
+  nama_asli   String      @db.VarChar(255)
+  path_file   String
+  mime_type   String      @db.VarChar(100)
+  ukuran_byte BigInt
+  uploaded_by String?     @db.Uuid
+  created_at  DateTime    @default(now()) @db.Timestamptz(6)
+  surat_keluar surat_keluar @relation(fields: [surat_id], references: [id], onUpdate: NoAction)
+  users       users?      @relation("lampiran_keluar_uploaded_by", fields: [uploaded_by], references: [id], onDelete: Restrict, onUpdate: NoAction)
+
+  @@index([surat_id], map: "idx_lampiran_keluar")
+}
+
+/// Tautan unduh APK Android yang tampil di pojok kiri atas halaman login.
+/// Satu baris (id "tunggal"); diatur lewat Pengaturan > Perangkat. Kalau belum ada, tombol tidak tampil.
+model apk_unduh {
+  id          String   @id @default("tunggal")
+  url         String   @db.Text
+  diubah_oleh String?  @db.Uuid
+  updated_at  DateTime @default(now()) @db.Timestamptz(6)
+}

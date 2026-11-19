@@ -1,0 +1,635 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Export chat sesi pi di root repo berisi string kelas acak (mis. top-[var(--header-height?)])
+   yang kalau ikut dipindai Tailwind jadi utilitas CSS tidak valid. */
+@source not "**/*.jsonl";
+@source not "**/JSONL";
+
+@custom-variant dark (&:is(.dark *));
+/* Varian untuk mode terang: elemen yang bukan bagian dari .dark. Dipakai ketika batas harus mengikuti
+   --input (gelap) sementara mode gelap tetap memakai tint statusnya sendiri. */
+@custom-variant terang (&:not(.dark, .dark *));
+
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  /* Seri surat masuk/keluar dipisah, jadi punya token sendiri di kedua mode. */
+  --color-chart-masuk: var(--chart-masuk);
+  --color-chart-keluar: var(--chart-keluar);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  /* Warna kategori grafik komposisi surat per kategori surat: hue berbeda, chroma moderat, >=3:1 di card. */
+  --color-chart-cat-1: var(--chart-cat-1);
+  --color-chart-cat-2: var(--chart-cat-2);
+  --color-chart-cat-3: var(--chart-cat-3);
+  --color-chart-cat-4: var(--chart-cat-4);
+  --color-chart-cat-5: var(--chart-cat-5);
+  --color-chart-cat-6: var(--chart-cat-6);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-success-line: var(--success-line);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-line: var(--warning-line);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --color-info-line: var(--info-line);
+  --color-counter: var(--counter);
+  --color-counter-foreground: var(--counter-foreground);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  /* Kanvas hangat: kartu putih harus terasa naik di atasnya. Kalau kanvas ikut putih,
+     seluruh halaman jadi satu bidang datar dan pemisah hanya bergantung pada ring.
+     Preset bJMTbSfw memakai kanvas putih; nilai ini sedikit lebih gelap supaya kartu
+     dan garis tabel masih membedakan bidang di monitor besar. */
+  --background: oklch(0.975 0.012 95.277);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  /* Preset memakai amber 0.555; teks krem di atasnya hanya 3,7:1, jadi fill digelapkan
+     sampai burnt amber 0.50 supaya teks tombol dan pil terpilih lolos 4,5:1. */
+  --primary: oklch(0.5 0.155 48.998);
+  --primary-foreground: oklch(0.987 0.022 95.277);
+  /* Netral warm mengikuti hue brand; preset memakai netral dingin hue 286 yang lepas
+     dari palet amber. */
+  --secondary: oklch(0.955 0.014 95.277);
+  --secondary-foreground: oklch(0.24 0.03 49.25);
+  --muted: oklch(0.97 0.001 106.424);
+  /* Preset 0.553 = 3,4:1 di kartu; digelapkan sampai lolos teks kecil. */
+  --muted-foreground: oklch(0.48 0.014 58.071);
+  --accent: oklch(0.97 0.012 95.277);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  /* --destructive dipakai sebagai teks galat di tint merah 10%: harus >=4,5:1.
+     Preset 0.577 = 3,3:1 di tint-nya sendiri. */
+  --destructive: oklch(0.5 0.2 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  /* --input dipakai sebagai batas form: harus >=3:1 terhadap card putih (WCAG non-text).
+     Preset menyamakan input dengan border (1,00:1), jadi isian tidak terlihat berbingkai. */
+  --input: oklch(0.55 0.022 49.25);
+  /* --ring dipakai indikator focus: harus >=3:1 terhadap card. Amber brand dipakai,
+     bukan netral 0.709 (1,8:1). */
+  --ring: oklch(0.5 0.155 48.998);
+  /* Ramp brand mauve untuk grafik; chart-3 dipakai batang utama (>=3:1 terhadap card). */
+  --chart-1: oklch(0.869 0.005 56.366);
+  --chart-2: oklch(0.553 0.013 58.071);
+  --chart-3: oklch(0.444 0.011 73.639);
+  --chart-4: oklch(0.374 0.01 67.558);
+  --chart-5: oklch(0.268 0.007 34.298);
+  /* Kategori komposisi: hue terpisah agar slice mudah dibedakan, bukan warna status. */
+  --chart-masuk: oklch(0.444 0.011 73.639);
+  --chart-keluar: oklch(0.48 0.12 27);
+  /* Seri surat masuk dan surat keluar punya warnanya sendiri: `--chart-6` tidak pernah didefinisikan,
+     sehingga batang surat keluar jatuh ke hitam dan hanya 1,20:1 di latar kartu gelap. */
+  --chart-cat-1: oklch(0.55 0.13 291);
+  --chart-cat-2: oklch(0.52 0.11 240);
+  --chart-cat-3: oklch(0.52 0.12 145);
+  --chart-cat-4: oklch(0.52 0.12 75);
+  --chart-cat-5: oklch(0.5 0.13 27);
+  --chart-cat-6: oklch(0.52 0.11 190);
+  /* Preset memakai radius 0; rancangan yang dipakai rujukan masih kartu dan tombol
+     berjari-jari, dan sistem ini memakai radius bersarang (luar = dalam + padding). */
+  --radius: 0.625rem;
+  /* Sidebar = kanvas, bukan "dunia sidebar". Dipisah oleh garis, bukan warna berbeda. */
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  /* Menu aktif diisi fill brand; amber preset 0.666 dengan teks krem 2,4:1, jadi sama
+     seperti --primary supaya teks menu aktif terbaca. */
+  --sidebar-primary: oklch(0.5 0.155 48.998);
+  --sidebar-primary-foreground: oklch(0.987 0.022 95.277);
+  --sidebar-accent: oklch(0.97 0.012 95.277);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.5 0.155 48.998);
+
+  /* Ramp status. Teks dipilih lebih gelap dari warna brand supaya >=4.5:1 di tinted background.
+     Garis tint di mode terang disamakan bobotnya dengan --input (>=3:1 terhadap kartu putih);
+     di 0,86 garis hampir hilang dan pil status terlihat seperti gumpalan abu-abu. */
+  --success: oklch(0.432 0.118 145.2);
+  --success-bg: oklch(0.952 0.026 145.2);
+  --success-line: oklch(0.55 0.075 145.2);
+  --warning: oklch(0.502 0.108 62.5);
+  --warning-bg: oklch(0.955 0.035 75.2);
+  --warning-line: oklch(0.55 0.07 75.2);
+  --info: oklch(0.42 0.088 322.12);
+  --info-bg: oklch(0.955 0.012 322.12);
+  --info-line: oklch(0.55 0.06 322.12);
+  /* Pil hitungan di navigator: latar abu hangat yang nyata di atas kartu putih, tanpa garis.
+     Teksnya gelap supaya >=4,5:1 di latar itu. */
+  --counter: oklch(0.86 0.015 58);
+  --counter-foreground: oklch(0.32 0.02 49);
+}
+
+.dark {
+  /* Mode gelap mengikuti rancangan "Nova - Inter": kanvas nyaris hitam hangat, kartu satu
+     tingkat di atasnya, garis tipis, aksen karat. Netralnya hangat (hue 42) supaya tidak
+     abu-abu kebiruan; teks bukan putih murni karena putih murni di latar gelap menyilaukan. */
+  --background: oklch(0.17 0.012 42);
+  --foreground: oklch(0.95 0.006 95);
+  --card: oklch(0.215 0.012 42);
+  --card-foreground: oklch(0.95 0.006 95);
+  --popover: oklch(0.235 0.012 42);
+  --popover-foreground: oklch(0.95 0.006 95);
+  /* Kontradiksi gelap shadcn: isi fill dengan warna terang, tulis teks gelap di atasnya.
+     Karat 0.72 terbaca sebagai teks di atas kartu (>=4,5:1) dan cokelat 0.24 terbaca di
+     atas fill-nya. */
+  --primary: oklch(0.72 0.17 46);
+  --primary-foreground: oklch(0.24 0.06 44);
+  --secondary: oklch(0.27 0.014 42);
+  --secondary-foreground: oklch(0.93 0.008 95);
+  --muted: oklch(0.24 0.012 42);
+  --muted-foreground: oklch(0.74 0.018 75);
+  --accent: oklch(0.28 0.016 42);
+  --accent-foreground: oklch(0.95 0.006 95);
+  /* Teks galat harus lolos 4,5:1 di tint-nya sendiri di latar gelap, jadi lebih terang
+     daripada merah gelap yang dipakai di mode terang. */
+  --destructive: oklch(0.86 0.13 22);
+  --border: oklch(0.32 0.016 42);
+  /* Batas isian harus >=3:1 terhadap kartu gelap; garis 10% putih hanya 1,1:1. */
+  --input: oklch(0.55 0.022 45);
+  --ring: oklch(0.72 0.17 46);
+  /* Ramp grafik: abu terang ke gelap di latar gelap, batang utama chart-3 >=3:1. */
+  --chart-1: oklch(0.86 0.012 75);
+  --chart-2: oklch(0.72 0.016 70);
+  --chart-3: oklch(0.55 0.02 60);
+  --chart-4: oklch(0.42 0.02 55);
+  --chart-5: oklch(0.3 0.02 45);
+  --chart-masuk: oklch(0.55 0.02 60);
+  --chart-keluar: oklch(0.74 0.13 27);
+  --chart-cat-1: oklch(0.72 0.13 291);
+  --chart-cat-2: oklch(0.72 0.11 240);
+  --chart-cat-3: oklch(0.74 0.12 145);
+  --chart-cat-4: oklch(0.78 0.12 75);
+  --chart-cat-5: oklch(0.72 0.13 27);
+  --chart-cat-6: oklch(0.72 0.11 190);
+  /* Sidebar = kanvas; dipisah garis, bukan blok warna berbeda. Menu aktif memakai
+     karat terang dengan teks cokelat, sama seperti --primary. */
+  --sidebar: oklch(0.19 0.012 42);
+  --sidebar-foreground: oklch(0.95 0.006 95);
+  --sidebar-primary: oklch(0.72 0.17 46);
+  --sidebar-primary-foreground: oklch(0.24 0.06 44);
+  --sidebar-accent: oklch(0.27 0.014 42);
+  --sidebar-accent-foreground: oklch(0.95 0.006 95);
+  --sidebar-border: oklch(0.32 0.016 42);
+  --sidebar-ring: oklch(0.72 0.17 46);
+
+  /* Ramp status gelap: teks terang di tint gelap, garis tint cukup terang untuk >=3:1. */
+  --success: oklch(0.78 0.12 145.2);
+  --success-bg: oklch(0.24 0.045 145.2);
+  --success-line: oklch(0.48 0.08 145.2);
+  --warning: oklch(0.85 0.11 75.2);
+  --warning-bg: oklch(0.26 0.055 75.2);
+  --warning-line: oklch(0.52 0.09 75.2);
+  --info: oklch(0.82 0.05 322.12);
+  --info-bg: oklch(0.25 0.02 322.12);
+  --info-line: oklch(0.5 0.035 322.12);
+  /* Pil hitungan di navigator pada latar gelap: abu hangat setingkat di atas kartu. */
+  --counter: oklch(0.33 0.02 42);
+  --counter-foreground: oklch(0.9 0.01 95);
+
+  /* Alias warna di ulang di dalam elemen `.dark` yang bukan <html>. Alias di :root sudah ter-resolve
+     ke token mode terang saat halaman terang, jadi elemen gelap bersarang (layar monitor `/monitor`)
+     harus menghitung ulang aliasnya dari token gelap — kalau tidak, grafik dan tint di layar monitor
+     memakai warna mode terang di atas latar gelap (batang surat masuk jadi 2,30:1). */
+  --color-chart-masuk: var(--chart-masuk);
+  --color-chart-keluar: var(--chart-keluar);
+  --color-chart-cat-1: var(--chart-cat-1);
+  --color-chart-cat-2: var(--chart-cat-2);
+  --color-chart-cat-3: var(--chart-cat-3);
+  --color-chart-cat-4: var(--chart-cat-4);
+  --color-chart-cat-5: var(--chart-cat-5);
+  --color-chart-cat-6: var(--chart-cat-6);
+  --color-success: var(--success);
+  --color-success-bg: var(--success-bg);
+  --color-success-line: var(--success-line);
+  --color-warning: var(--warning);
+  --color-warning-bg: var(--warning-bg);
+  --color-warning-line: var(--warning-line);
+  --color-info: var(--info);
+  --color-info-bg: var(--info-bg);
+  --color-info-line: var(--info-line);
+  --color-counter: var(--counter);
+  --color-counter-foreground: var(--counter-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  /* Batas tombol outline harus >=3:1 terhadap card; teks tab aktif dan nonaktif harus >=4.5:1. */
+  [data-slot="button"][data-variant="outline"] {
+    border-color: var(--input);
+  }
+  [data-slot="tabs-trigger"] {
+    color: var(--foreground);
+  }
+  [data-slot="tabs-trigger"]:not([data-active="true"]) {
+    color: var(--foreground);
+  }
+}
+
+@utility num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Kronologi surat: jalur vertikal dengan titik bernomor, tiap bagian diberi jarak.
+   Gutter kiri diatur lewat variabel supaya titik selalu duduk di atas jalurnya. */
+/* Ruang lingkup kronologi: bagian surat berada di tengah kolom (dibatasi lebarnya), dan pinggir
+   kiri/kanannya dipakai tombol Sebelumnya / Berikutnya. Jarak jalur (gutter) dipakai bersama oleh
+   titik nomor dan baris langkah. */
+.kronologi-scope {
+  --kronologi-gutter: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.kronologi-wadah {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: min(100%, 68rem);
+}
+.kronologi-sisi {
+  flex-shrink: 0;
+}
+.kronologi {
+  position: relative;
+  display: grid;
+  gap: 2.75rem;
+  margin: 0;
+  padding: 0 0 0 var(--kronologi-gutter);
+  /* Jangan melebar karena isi yang lebar (tabel disposisi) — tabel menggulung di dalam kartunya. */
+  min-width: 0;
+  list-style: none;
+}
+.kronologi > li {
+  position: relative;
+  min-width: 0;
+}
+.kronologi::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--kronologi-gutter) / 2 - 1px);
+  top: 1.1rem;
+  bottom: 1rem;
+  width: 2px;
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--border) 70%, transparent);
+}
+.kronologi-titik {
+  position: absolute;
+  left: calc(var(--kronologi-gutter) / -2 - 0.625rem);
+  top: 0.9rem;
+  display: grid;
+  place-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in oklab, var(--primary) 45%, var(--border));
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 0.7rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 768px) {
+  .kronologi-scope {
+    --kronologi-gutter: 1.5rem;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  /* Tidak ada ruang di pinggir kartu, jadi kedua tombol turun ke baris di bawah bagian. */
+  .kronologi-wadah {
+    flex-basis: 100%;
+  }
+  .kronologi-sisi {
+    order: 2;
+  }
+  .kronologi {
+    gap: 2rem;
+  }
+}
+@media (min-width: 1025px) {
+  .kronologi-scope {
+    --kronologi-gutter: 2.25rem;
+  }
+  .kronologi-titik {
+    left: calc(var(--kronologi-gutter) / -2 - 0.875rem);
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 0.75rem;
+  }
+}
+/* Mode langkah demi langkah: bagian yang bukan langkah aktif disembunyikan. Saat dicetak semuanya
+   tetap keluar supaya lembar cetak surat tidak kehilangan bagian. */
+.langkah-tertutup {
+  display: none;
+}
+@media print {
+  .langkah-tertutup {
+    display: list-item;
+  }
+}
+
+@media print {
+  .kronologi {
+    padding-left: 0;
+    gap: 1rem;
+  }
+  .kronologi::before,
+  .kronologi-titik {
+    display: none;
+  }
+}
+
+/* Aksi yang sedang berjalan: kontrol di dalam form-nya dikunci supaya tidak ditekan dua kali,
+   dan pengguna tetap melihat hasilnya di tempat yang sama sampai refresh selesai. */
+[data-mengirim] [data-slot="button"] {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Target sentuh minimal 44px di layar sentuh; komponen shadcn compact di desktop. */
+/* Mode terang: trigger Select jadi tile lembut seperti tile periode — latar `--muted` dan garis lembut.
+   `bg-input/50` bawaan di atas kartu putih jadi gumpalan abu-abu yang tidak terlihat sebagai kontrol. */
+:root:not(.dark) [data-slot="select-trigger"] {
+  background-color: var(--muted);
+  border-color: var(--input);
+}
+
+@media (max-width: 768px) {
+  [data-slot="button"],
+  [data-slot="button-group"] > [data-slot="button"],
+  [data-slot="native-select"],
+  /* Trigger popover (tombol rentang tanggal) di-element Radix sebagai popover-trigger, bukan button. */
+  [data-slot="popover-trigger"],
+  /* Pilihan tahun rekap dan status: trigger Select harus seukur target sentuh di layar sentuh. */
+  [data-slot="select-trigger"],
+  [data-slot="input"],
+  [data-slot="textarea"],
+  [data-slot="checkbox"],
+  /* Pilihan "Tanpa Instruksi" / "Instruksi" pada form disposisi: yang ditap adalah pil utuh, bukan radio sr-only. */
+  [data-slot="pilih-instruksi"],
+  /* Daftar pilihan nama peserta rapat: baris nama dan tombol hapus pada chip harus seukur target sentuh. */
+  [data-slot="combobox-item"],
+  [data-slot="combobox-chip-remove"],
+  [data-slot="combobox-trigger"],
+  /* Radio pilihan surat: yang ditap adalah baris label utuh, bukan lingkaran 16px. */
+  label:has([data-slot="radio"]),
+  [data-slot="nav-tab"],
+  [data-slot="switch"],
+  [data-slot="pagination-link"],
+  /* Toggle 'Filter lanjutan' di daftar surat: di layar sentuh harus seukur target sentuh. */
+  [data-slot="collapsible-trigger"],
+  [data-slot="sidebar-menu-button"],
+  [data-slot="sidebar-trigger"],
+  [data-slot="dropdown-menu-trigger"],
+  [data-slot="dropdown-menu-item"],
+  [data-slot="calendar"] button,
+  [data-slot="calendar"] a {
+    min-height: 2.75rem;
+  }
+  /* Chevron buka/tutup di baris Pengaturan dipatok dari atas menu-item, jadi tinggi tombol acuan.
+     Saat tombol jadi 44px di layar sentuh patok 6px bawaan bukan lagi pusat tombol, dan submenu
+     yang terbuka menambah tinggi item — patok 12px = (44px - 20px chevron) / 2 tetap sejajar. */
+  [data-sidebar="menu-action"] {
+    top: 12px;
+  }
+  /* Nama agenda yang panjang bisa membuat tombol lebih lebar dari layar; di layar sentuh teksnya boleh turun baris. */
+  [data-slot="button"] {
+    max-width: 100%;
+    white-space: normal;
+  }
+  /* Tombol yang di HP hanya menampilkan icon (ekspor Excel, cetak PDF) juga harus 44px lebarnya, bukan tingginya saja. */
+  [data-slot="button"][data-ikon-saja] {
+    min-width: 2.75rem;
+  }
+  /* Tombol navigasi bulan hanya icon, jadi lebarnya juga harus 44px di layar sentuh, bukan tingginya saja. */
+  [data-slot="month-nav"] [data-slot="button"] {
+    min-width: 2.75rem;
+  }
+  /* Chip nama peserta: tombol X di HP diberi area sentuh penuh, chip ikut melebar supaya tidak terpotong. */
+  [data-slot="combobox-chip-remove"] {
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+  [data-slot="combobox-chip"] {
+    height: 2.75rem;
+  }
+  [data-slot="combobox-chips"] {
+    min-height: 2.75rem;
+  }
+  /* Kalender di HP: tiap sel minimal 48px (grid min-width 21rem = 7 × 48) supaya tautan tanggal tetap
+     44px lebar di layar sempit; di layar paling sempit kalender bisa digulung horizontal. Tautan tanggal
+     dilebarkan ke lebar sel dan padding horizontal sel sengaja tipis supaya area sentuh tidak menyusut. */
+  .kalender > div > div {
+    min-height: 4.5rem;
+    padding: 0.4rem 0.125rem;
+  }
+  /* Kartu lebih tipis di layar sentuh supaya isian muat. Lebar minimum dropdown (lebarOpsiMin) ditahan
+     sampai 100% di layar sempit: popup boleh memotong nama panjang, tetapi isian tidak boleh menembus
+     tepi kartu. Di desktop nama penuh tetap muat di popup. */
+  :root {
+    --card-spacing: 0.75rem;
+  }
+  /* Navigasi bagian surat di layar sempit bisa digeser ke samping; thumbscroll-nya disembunyikan supaya tidak
+     menutupi label tab. Tab tetap bisa disentuh dan difokus dari keyboard. */
+  nav[aria-label="Bagian surat ini"] {
+    scrollbar-width: none;
+  }
+  nav[aria-label="Bagian surat ini"]::-webkit-scrollbar {
+    display: none;
+  }
+  /* Kolom grid form jadi satu kolom dan dibatasi nol supaya kolom tidak tumbuh selebar teks terpanjang,
+     dan kontrol tetap muat selebar opsi terpanjangnya. */
+  [data-slot="field-group"] {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  /* Header kartu: kolom aksi turun ke barisnya sendiri di HP. shadcn memberi kolom `auto` saat ada
+     card-action, jadi badge "Belum didisposisikan" + "Belum ditentukan" selebar teksnya dan menembus
+     tepi kartu identitas di 375px. */
+  [data-slot="card-header"]:has([data-slot="card-action"]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  [data-slot="card-header"] [data-slot="card-action"] {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Saat dicetak, ikon navigasi pil tidak perlu ikut tercetak. */
+@media print {
+  [data-slot="nav-tab"] svg {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    margin: 16mm 14mm;
+  }
+  /* Laporan dicetak di kertas putih; tint kanvas jangan ikut tercetak jadi halaman abu-abu.
+     Selain kanvas, SELURUH token dipaksa ke palet terang — kalau cuma --background yang diubah,
+     mode gelap dicetak dengan teks nyaris putih di kertas putih: font memudar jadi abu-abu.
+     Blok ini di akhir globals.css sehingga mengalahkan .dark lewat urutan. */
+  :root,
+  .dark {
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.147 0.004 49.25);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.147 0.004 49.25);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.147 0.004 49.25);
+    --primary: oklch(0.5 0.155 48.998);
+    --primary-foreground: oklch(0.987 0.022 95.277);
+    --secondary: oklch(0.955 0.014 95.277);
+    --secondary-foreground: oklch(0.24 0.03 49.25);
+    --muted: oklch(0.97 0.001 106.424);
+    --muted-foreground: oklch(0.48 0.014 58.071);
+    --accent: oklch(0.97 0.012 95.277);
+    --accent-foreground: oklch(0.216 0.006 56.043);
+    --destructive: oklch(0.5 0.2 27.325);
+    --border: oklch(0.923 0.003 48.717);
+    --input: oklch(0.55 0.022 49.25);
+    --ring: oklch(0.5 0.155 48.998);
+    --chart-1: oklch(0.869 0.005 56.366);
+    --chart-2: oklch(0.553 0.013 58.071);
+    --chart-3: oklch(0.444 0.011 73.639);
+    --chart-4: oklch(0.374 0.01 67.558);
+    --chart-5: oklch(0.268 0.007 34.298);
+    --chart-masuk: oklch(0.444 0.011 73.639);
+    --chart-keluar: oklch(0.48 0.12 27);
+    --chart-cat-1: oklch(0.55 0.13 291);
+    --chart-cat-2: oklch(0.52 0.11 240);
+    --chart-cat-3: oklch(0.52 0.12 145);
+    --chart-cat-4: oklch(0.52 0.12 75);
+    --chart-cat-5: oklch(0.5 0.13 27);
+    --chart-cat-6: oklch(0.52 0.11 190);
+    --sidebar: oklch(0.985 0.001 106.423);
+    --sidebar-foreground: oklch(0.147 0.004 49.25);
+    --sidebar-primary: oklch(0.5 0.155 48.998);
+    --sidebar-primary-foreground: oklch(0.987 0.022 95.277);
+    --sidebar-accent: oklch(0.97 0.012 95.277);
+    --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+    --sidebar-border: oklch(0.923 0.003 48.717);
+    --sidebar-ring: oklch(0.5 0.155 48.998);
+    --success: oklch(0.432 0.118 145.2);
+    --success-bg: oklch(0.952 0.026 145.2);
+    --success-line: oklch(0.55 0.075 145.2);
+    --warning: oklch(0.502 0.108 62.5);
+    --warning-bg: oklch(0.955 0.035 75.2);
+    --warning-line: oklch(0.55 0.07 75.2);
+    --info: oklch(0.42 0.088 322.12);
+    --info-bg: oklch(0.955 0.012 322.12);
+    --info-line: oklch(0.55 0.06 322.12);
+    --counter: oklch(0.86 0.015 58);
+    --counter-foreground: oklch(0.32 0.02 49);
+  }
+  [data-sidebar="sidebar"],
+  [data-slot="sidebar-trigger"],
+  [data-slot="sidebar-rail"],
+  .site-header,
+  .tanpa-cetak {
+    display: none !important;
+  }
+  [data-slot="sidebar-inset"] {
+    margin-left: 0;
+  }
+  [data-slot="card"] {
+    break-inside: avoid;
+    box-shadow: none;
+  }
+  /* Warna badge, header tabel, grafik, dan chip delta ikut tercetak; tanpa ini latar tint hilang. */
+  [data-slot="badge"],
+  [data-slot="table-head"],
+  [data-slot="chart"],
+  .metrik-chip {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  [data-slot="table-row"] {
+    break-inside: avoid;
+  }
+  /* Tabel harus muat di lebar halaman cetak, bukan digulir horizontal. */
+  .overflow-x-auto,
+  [data-slot="table-wrapper"] {
+    overflow: visible !important;
+  }
+  [data-slot="table"] {
+    width: 100% !important;
+    min-width: 0 !important;
+    font-size: 11px;
+  }
+  [data-slot="table-head"],
+  [data-slot="table-cell"] {
+    padding: 4px 8px;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .whitespace-nowrap {
+    white-space: normal;
+  }
+  /* Kalender rapat juga muat di lebar halaman cetak. */
+  .kalender > div {
+    min-width: 0 !important;
+  }
+}

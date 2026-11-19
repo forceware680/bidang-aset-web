@@ -1,0 +1,58 @@
+node_modules/
+.next/
+out/
+build/
+.env
+.env.local
+.env.development.local
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+
+uploads/
+dev.log
+tmp_*.js
+
+# Sumber logo asli (9 MB); hasil siap pakai ada di public/logo.png dan public/logo-cetak.png
+/LOGO Bidang Aset-BPKAD.png
+
+# tangkapan layar untuk tinjauan tampilan (npm run test:tampilan)
+.shots/
+
+# Sumber agenda lama (2 MB) hanya dipakai untuk mempelajari struktur data; belum diimpor ke database
+/*.xlsx
+/~$*.xlsx
+
+# skrip bantu sementara dan tangkapan layar ad-hoc
+scripts/tmp-*.mjs
+scripts/tmp-*.mts
+tmp/
+
+.impeccable/live/
+
+# Varian logo asli tambahan dari user (sumber besar); hasil pakai tetap public/logo*.png
+new logo/
+
+# transaksi sesi pi (catatan lokal, bukan bagian aplikasi)
+pi-session-*.html
+
+# export chat sesi pi yang ditaruh di root repo — jangan ikut dipindai Tailwind
+/*.jsonl
+/JSONL
+pi-chat-*.jsonl
+
+scripts/tmp-*.cjs
+
+# skill yang dipasang lewat npx skills (pulihkan: npx skills experimental_install)
+/.agents/
+/.claude/
+.e2e/results/
+.e2e/cache/
+.e2e/sessions/
+.e2e/report.json
+.e2e/ai-trace.json
+.e2e/timings.json
+.e2e/junit.xml
+.e2e/summary.md
+.e2e/logs/
+.e2e/videos/

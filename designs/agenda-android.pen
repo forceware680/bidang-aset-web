@@ -1,0 +1,5023 @@
+{
+  "version": "2.22",
+  "children": [
+    {
+      "type": "frame",
+      "id": "P9xXGA",
+      "x": 0,
+      "y": 0,
+      "name": "Badge status",
+      "reusable": true,
+      "fill": "$hijau-latar",
+      "cornerRadius": 999,
+      "stroke": "$hijau-garis",
+      "strokeWidth": 1,
+      "gap": 6,
+      "padding": [
+        6,
+        10
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "text",
+          "id": "zUCjB",
+          "name": "Label",
+          "fill": "$hijau",
+          "content": "Selesai",
+          "fontFamily": "Inter",
+          "fontSize": 12,
+          "fontWeight": "medium"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "SAzIl",
+      "x": 260,
+      "y": 0,
+      "name": "Baris agenda",
+      "reusable": true,
+      "width": 340,
+      "stroke": "$garis",
+      "strokeWidth": {
+        "bottom": 1
+      },
+      "gap": 14,
+      "padding": [
+        16,
+        0
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "SG6sy",
+          "name": "Waktu",
+          "width": 70,
+          "layout": "vertical",
+          "gap": 3,
+          "children": [
+            {
+              "type": "text",
+              "id": "K5scGz",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "08.30",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "text",
+              "id": "RuQm8",
+              "name": "Jam selesai",
+              "fill": "$redup",
+              "content": "10.00",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "hEJ2K",
+          "name": "Isi",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 6,
+          "children": [
+            {
+              "type": "text",
+              "id": "svmKl",
+              "name": "Judul",
+              "fill": "$teks",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Rapat koordinasi penggunaan aset",
+              "fontFamily": "Inter",
+              "fontSize": 16,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "text",
+              "id": "U5vkD",
+              "name": "Tempat",
+              "fill": "$redup",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Ruang Rapat BPKAD",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "normal"
+            }
+          ]
+        },
+        {
+          "id": "JqZ2m",
+          "type": "ref",
+          "ref": "P9xXGA",
+          "name": "Status",
+          "descendants": {
+            "zUCjB": {
+              "content": "Selesai"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "VUvj5",
+      "x": 640,
+      "y": 0,
+      "name": "Isian",
+      "reusable": true,
+      "width": 320,
+      "layout": "vertical",
+      "gap": 6,
+      "children": [
+        {
+          "type": "text",
+          "id": "t9zMZ",
+          "name": "Label",
+          "fill": "$redup",
+          "content": "Judul agenda",
+          "fontFamily": "Inter",
+          "fontSize": 13,
+          "fontWeight": "medium"
+        },
+        {
+          "type": "frame",
+          "id": "kdkcI",
+          "name": "Kotak isian",
+          "width": "fill_container",
+          "height": 46,
+          "fill": "$lapis",
+          "cornerRadius": "$radius",
+          "stroke": "$garis-isian",
+          "strokeWidth": 1,
+          "padding": [
+            11,
+            12
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "p3Rzi",
+              "name": "Isi teks",
+              "fill": "$teks",
+              "content": "Rapat koordinasi penggunaan aset",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "H7PQ3p",
+      "x": 0,
+      "y": 240,
+      "name": "Tombol utama",
+      "reusable": true,
+      "width": 320,
+      "height": 48,
+      "fill": "$karat",
+      "cornerRadius": "$radius",
+      "gap": 8,
+      "padding": [
+        12,
+        16
+      ],
+      "justifyContent": "center",
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "icon",
+          "id": "Vghd0",
+          "name": "Ikon",
+          "width": 18,
+          "height": 18,
+          "icon": "calendar-plus",
+          "library": "lucide",
+          "fill": "$karat-teks"
+        },
+        {
+          "type": "text",
+          "id": "WBbZN",
+          "name": "Label",
+          "fill": "$karat-teks",
+          "content": "Simpan agenda",
+          "fontFamily": "Inter",
+          "fontSize": 15,
+          "fontWeight": "medium"
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "HEeFa",
+      "x": 400,
+      "y": 240,
+      "name": "Bilah bawah",
+      "reusable": true,
+      "width": 343,
+      "height": 60,
+      "fill": "#231c1ab3",
+      "cornerRadius": 30,
+      "stroke": "$garis",
+      "strokeWidth": 1,
+      "gap": 4,
+      "padding": 6,
+      "children": [
+        {
+          "type": "frame",
+          "id": "o6aC16",
+          "name": "Menu Hari ini",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "$hover",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "W34DHK",
+              "name": "Ikon Hari ini",
+              "width": 22,
+              "height": 22,
+              "icon": "calendar-days",
+              "library": "lucide",
+              "fill": "$karat"
+            },
+            {
+              "type": "text",
+              "id": "o7T7Y6",
+              "name": "Label Hari ini",
+              "fill": "$karat",
+              "content": "Hari ini",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "medium"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "odBUQ",
+          "name": "Menu Mendatang",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#00000000",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "im7UI",
+              "name": "Ikon Mendatang",
+              "width": 22,
+              "height": 22,
+              "icon": "calendar-clock",
+              "library": "lucide",
+              "fill": "$redup"
+            },
+            {
+              "type": "text",
+              "id": "cVB6t",
+              "name": "Label Mendatang",
+              "fill": "$redup",
+              "content": "Mendatang",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "regular"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "wbP3r",
+          "name": "Menu Akun",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#00000000",
+          "cornerRadius": 24,
+          "layout": "vertical",
+          "gap": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "N6M7K",
+              "name": "Ikon Akun",
+              "width": 22,
+              "height": 22,
+              "icon": "user-round",
+              "library": "lucide",
+              "fill": "$redup"
+            },
+            {
+              "type": "text",
+              "id": "fK7mR",
+              "name": "Label Akun",
+              "fill": "$redup",
+              "content": "Akun",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": "regular"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Q7qB3",
+      "x": 400,
+      "y": 370,
+      "name": "Layar Masuk",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "c0dVvy",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "PACkd",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "Bagff",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "gSJWZ",
+                  "name": "Ikon sinyal",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal-high",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "IzCsx",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "QKOLY",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ydm0W",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 22,
+          "padding": [
+            8,
+            20,
+            26,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "gwfql",
+              "name": "Merek",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "AHNzB",
+                  "name": "Lambang",
+                  "width": 52,
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "vaF2y",
+                      "name": "Ikon merek",
+                      "width": 26,
+                      "height": 26,
+                      "icon": "building-2",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "r4O92",
+                  "name": "Tulis merek",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 3,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hbC26",
+                      "name": "Nama aplikasi",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Agenda Aset Magelang",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "semibold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kXOC6",
+                      "name": "Sub merek",
+                      "fill": "$redup",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Bidang Aset · BPKAD",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "V4WCWf",
+              "name": "Sapaan",
+              "fill": "$teks",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Masuk ke kalender agenda",
+              "lineHeight": 1.15,
+              "fontFamily": "Inter",
+              "fontSize": 26,
+              "fontWeight": "semibold"
+            },
+            {
+              "type": "text",
+              "id": "O9aK1p",
+              "name": "Penjelasan",
+              "fill": "$redup",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Lihat agenda rapat hari ini dan beberapa hari ke depan. Agenda yang kamu buat sendiri bisa kamu ubah atau hapus dari HP ini.",
+              "lineHeight": 1.4,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "spZys",
+              "name": "Isian email",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "tbrB9",
+                  "name": "Label email",
+                  "fill": "$redup",
+                  "content": "Surel",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "aAVM1",
+                  "name": "Kotak surel",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$lapis",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis-isian",
+                  "strokeWidth": 1,
+                  "gap": 10,
+                  "padding": [
+                    11,
+                    12
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "R3QF3t",
+                      "name": "Ikon surel",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "mail",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TGbSA",
+                      "name": "Tulis surel",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "petugas.aset@magelang.go.id",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "E5lUT",
+              "name": "Isian sandi",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "DdJkL",
+                  "name": "Label sandi",
+                  "fill": "$redup",
+                  "content": "Kata sandi",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "dHAb8",
+                  "name": "Kotak sandi",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$lapis",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis-isian",
+                  "strokeWidth": 1,
+                  "gap": 10,
+                  "padding": [
+                    11,
+                    12
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "o6Lux",
+                      "name": "Kiri sandi",
+                      "width": "fill_container",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "PYSzF",
+                          "name": "Ikon sandi",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "lock",
+                          "library": "lucide",
+                          "fill": "$redup"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IvOTf",
+                          "name": "Tulis sandi",
+                          "fill": "$teks",
+                          "content": "••••••••••",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal",
+                          "letterSpacing": 2
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "VHmX2",
+                      "name": "Ikon lihat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "eye",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "dvZmD",
+              "type": "ref",
+              "ref": "H7PQ3p",
+              "name": "Tombol masuk",
+              "width": "fill_container",
+              "descendants": {
+                "Vghd0": {
+                  "icon": "log-in"
+                },
+                "WBbZN": {
+                  "content": "Masuk"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "KBzv0",
+              "name": "Catatan",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "I2mbj6",
+                  "name": "Ikon catatan",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "bell-ring",
+                  "library": "lucide",
+                  "fill": "$karat"
+                },
+                {
+                  "type": "text",
+                  "id": "Ra1pH",
+                  "name": "Tulis catatan",
+                  "fill": "$redup",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Pengingat rapat berjalan di HP ini, 15 menit sebelum waktu mulai.",
+                  "lineHeight": 1.35,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "v2Kg1",
+      "x": 835,
+      "y": 370,
+      "name": "Layar Hari ini",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "K7Doz",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "n4dLS",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "E6tTXP",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "JQQ6W",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "OEJ0K",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "J7SYYd",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 20,
+          "padding": [
+            6,
+            20,
+            12,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "P1wnuW",
+              "name": "Kepala",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "JG2nH",
+                  "name": "Tulis hari",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jHjf9",
+                      "name": "Hari",
+                      "fill": "$teks",
+                      "content": "Rabu, 12 Nov",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": "semibold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "W6649",
+                      "name": "Jumlah",
+                      "fill": "$redup",
+                      "content": "3 agenda hari ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "wd3ka",
+                  "name": "Tombol agenda baru",
+                  "height": 44,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 6,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "sm6iO",
+                      "name": "Ikon tambah",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-plus",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jSa4r",
+                      "name": "Label tambah",
+                      "fill": "$karat-teks",
+                      "content": "Agenda baru",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lHwsX",
+              "name": "Rampung hari",
+              "width": "fill_container",
+              "gap": 6,
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uLJBX",
+                  "name": "Hari Sen",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "mZiiN",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Sen",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "c9nNbv",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "10",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "U041X",
+                  "name": "Hari Sel",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "takA6",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Sel",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fZBmw",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "11",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MhV4Z",
+                  "name": "Hari Rab",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "stroke": "$karat",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "ENVE6",
+                      "name": "Nama hari",
+                      "fill": "$karat-teks",
+                      "content": "Rab",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "OfV1c",
+                      "name": "Tanggal",
+                      "fill": "$karat-teks",
+                      "content": "12",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X7P615",
+                  "name": "Hari Kam",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "WRI5A",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Kam",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Wf958",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "13",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bFmhI",
+                  "name": "Hari Jum",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r6Q0u",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Jum",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "CaJa1",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "14",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "h2zQK6",
+                  "name": "Hari Sab",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dCfze",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Sab",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Jazyl",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "15",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "uNTut",
+                  "name": "Hari Min",
+                  "width": "fill_container",
+                  "height": 52,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 2,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "l5XPZM",
+                      "name": "Nama hari",
+                      "fill": "$redup",
+                      "content": "Min",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ieSAU",
+                      "name": "Tanggal",
+                      "fill": "$teks",
+                      "content": "16",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jLUTI",
+              "name": "Daftar agenda",
+              "width": "fill_container",
+              "layout": "vertical",
+              "children": [
+                {
+                  "id": "TJDHi",
+                  "type": "ref",
+                  "ref": "SAzIl",
+                  "name": "Agenda Rapat koordinasi penggunaan aset",
+                  "width": "fill_container",
+                  "descendants": {
+                    "K5scGz": {
+                      "content": "08.30"
+                    },
+                    "RuQm8": {
+                      "content": "10.00"
+                    },
+                    "svmKl": {
+                      "content": "Rapat koordinasi penggunaan aset"
+                    },
+                    "U5vkD": {
+                      "content": "Ruang Rapat BPKAD"
+                    },
+                    "JqZ2m": {
+                      "fill": "$hijau-latar",
+                      "stroke": "$hijau-garis"
+                    },
+                    "JqZ2m/zUCjB": {
+                      "content": "Selesai",
+                      "fill": "$hijau"
+                    }
+                  }
+                },
+                {
+                  "id": "CToLP",
+                  "type": "ref",
+                  "ref": "SAzIl",
+                  "name": "Agenda Verifikasi barang milik daerah",
+                  "width": "fill_container",
+                  "descendants": {
+                    "K5scGz": {
+                      "content": "13.00"
+                    },
+                    "RuQm8": {
+                      "content": "14.30"
+                    },
+                    "svmKl": {
+                      "content": "Verifikasi barang milik daerah"
+                    },
+                    "U5vkD": {
+                      "content": "Gudang Aset"
+                    },
+                    "JqZ2m": {
+                      "fill": "$amber-latar",
+                      "stroke": "$amber-garis"
+                    },
+                    "JqZ2m/zUCjB": {
+                      "content": "Berjalan",
+                      "fill": "$amber"
+                    }
+                  }
+                },
+                {
+                  "id": "TAe1z",
+                  "type": "ref",
+                  "ref": "SAzIl",
+                  "name": "Agenda Rapat inventaris barang milik daerah",
+                  "width": "fill_container",
+                  "descendants": {
+                    "K5scGz": {
+                      "content": "15.30"
+                    },
+                    "RuQm8": {
+                      "content": "16.30"
+                    },
+                    "svmKl": {
+                      "content": "Rapat inventaris barang milik daerah"
+                    },
+                    "U5vkD": {
+                      "content": "Ruang Rapat 2"
+                    },
+                    "JqZ2m": {
+                      "fill": "$kartu",
+                      "stroke": "$garis"
+                    },
+                    "JqZ2m/zUCjB": {
+                      "content": "Belum",
+                      "fill": "$redup"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": "RtfyC",
+              "type": "ref",
+              "ref": "HEeFa",
+              "name": "Bilah bawah layar",
+              "width": "fill_container"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "uo7uU",
+      "x": 1270,
+      "y": 370,
+      "name": "Layar Mendatang",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "r2gfax",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "AERrb",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "q0W7N7",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "chrCW",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "zkiSR",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "M6n9a",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            6,
+            20,
+            12,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "LZ8Fx",
+              "name": "Kepala",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "u918O",
+                  "name": "Judul layar",
+                  "fill": "$teks",
+                  "content": "Tujuh hari ke depan",
+                  "fontFamily": "Inter",
+                  "fontSize": 24,
+                  "fontWeight": "semibold"
+                },
+                {
+                  "type": "frame",
+                  "id": "U4EU9c",
+                  "name": "Rampung periode",
+                  "width": "fill_container",
+                  "fill": "$kartu",
+                  "cornerRadius": 999,
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "gap": 4,
+                  "padding": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "X3QVlu",
+                      "name": "Opsi Hari ini",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "#00000000",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "BcMOD",
+                          "name": "Tulis Hari ini",
+                          "fill": "$redup",
+                          "content": "Hari ini",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "AWVBV",
+                      "name": "Opsi 7 hari ke depan",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "$karat",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FmTDY",
+                          "name": "Tulis 7 hari ke depan",
+                          "fill": "$karat-teks",
+                          "content": "7 hari ke depan",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JcmFS",
+                      "name": "Opsi Bulan ini",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "#00000000",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "o97Wx",
+                          "name": "Tulis Bulan ini",
+                          "fill": "$redup",
+                          "content": "Bulan ini",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Twkfl",
+              "name": "Daftar per hari",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "P1W3v3",
+                  "name": "Grup Kamis, 13 November",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "kUhdP",
+                      "name": "Kepala hari",
+                      "width": "fill_container",
+                      "stroke": "$garis",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "padding": [
+                        0,
+                        0,
+                        8,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "uWwEp",
+                          "name": "Hari",
+                          "fill": "$teks",
+                          "content": "Kamis, 13 November",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "semibold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RLS1K",
+                          "name": "Jumlah",
+                          "fill": "$redup",
+                          "content": "2 agenda",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "A9OX4",
+                      "name": "Baris Kamis, 13 November",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "id": "PSNDS",
+                          "type": "ref",
+                          "ref": "SAzIl",
+                          "name": "Agenda Rapat inventaris barang milik daerah",
+                          "width": "fill_container",
+                          "descendants": {
+                            "K5scGz": {
+                              "content": "09.00"
+                            },
+                            "RuQm8": {
+                              "content": "11.00"
+                            },
+                            "svmKl": {
+                              "content": "Rapat inventaris barang milik daerah"
+                            },
+                            "U5vkD": {
+                              "content": "Ruang Rapat 2"
+                            },
+                            "JqZ2m": {
+                              "fill": "$kartu",
+                              "stroke": "$garis"
+                            },
+                            "JqZ2m/zUCjB": {
+                              "content": "Dari surat",
+                              "fill": "$redup"
+                            }
+                          }
+                        },
+                        {
+                          "id": "mqs0g",
+                          "type": "ref",
+                          "ref": "SAzIl",
+                          "name": "Agenda Pengukuran batas lahan aset",
+                          "width": "fill_container",
+                          "descendants": {
+                            "K5scGz": {
+                              "content": "14.00"
+                            },
+                            "RuQm8": {
+                              "content": "15.30"
+                            },
+                            "svmKl": {
+                              "content": "Pengukuran batas lahan aset"
+                            },
+                            "U5vkD": {
+                              "content": "Kantor Bidang Aset"
+                            },
+                            "JqZ2m": {
+                              "fill": "$kartu",
+                              "stroke": "$garis"
+                            },
+                            "JqZ2m/zUCjB": {
+                              "content": "Agenda kamu",
+                              "fill": "$karat"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Di1r0",
+                  "name": "Grup Jumat, 14 November",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "f6hwBG",
+                      "name": "Kepala hari",
+                      "width": "fill_container",
+                      "stroke": "$garis",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "padding": [
+                        0,
+                        0,
+                        8,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Jiocs",
+                          "name": "Hari",
+                          "fill": "$teks",
+                          "content": "Jumat, 14 November",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "semibold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "ALfe8",
+                          "name": "Jumlah",
+                          "fill": "$redup",
+                          "content": "1 agenda",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "EgbDI",
+                      "name": "Baris Jumat, 14 November",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "id": "e6Kfd",
+                          "type": "ref",
+                          "ref": "SAzIl",
+                          "name": "Agenda Verifikasi barang milik daerah",
+                          "width": "fill_container",
+                          "descendants": {
+                            "K5scGz": {
+                              "content": "13.00"
+                            },
+                            "RuQm8": {
+                              "content": "14.30"
+                            },
+                            "svmKl": {
+                              "content": "Verifikasi barang milik daerah"
+                            },
+                            "U5vkD": {
+                              "content": "Gudang Aset"
+                            },
+                            "JqZ2m": {
+                              "fill": "$kartu",
+                              "stroke": "$garis"
+                            },
+                            "JqZ2m/zUCjB": {
+                              "content": "Dari surat",
+                              "fill": "$redup"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "gXcLF",
+                  "name": "Grup Senin, 17 November",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K5Krv",
+                      "name": "Kepala hari",
+                      "width": "fill_container",
+                      "stroke": "$garis",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "padding": [
+                        0,
+                        0,
+                        8,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Jl4Bh",
+                          "name": "Hari",
+                          "fill": "$teks",
+                          "content": "Senin, 17 November",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "semibold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "WQ4Eu",
+                          "name": "Jumlah",
+                          "fill": "$redup",
+                          "content": "1 agenda",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "YYPPV",
+                      "name": "Baris Senin, 17 November",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "id": "kkWHB",
+                          "type": "ref",
+                          "ref": "SAzIl",
+                          "name": "Agenda Koordinasi penghapusan barang",
+                          "width": "fill_container",
+                          "descendants": {
+                            "K5scGz": {
+                              "content": "10.00"
+                            },
+                            "RuQm8": {
+                              "content": "11.30"
+                            },
+                            "svmKl": {
+                              "content": "Koordinasi penghapusan barang"
+                            },
+                            "U5vkD": {
+                              "content": "Ruang Rapat BPKAD"
+                            },
+                            "JqZ2m": {
+                              "fill": "$kartu",
+                              "stroke": "$garis"
+                            },
+                            "JqZ2m/zUCjB": {
+                              "content": "Agenda kamu",
+                              "fill": "$karat"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jvENx",
+                  "name": "Grup Selasa, 18 November",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Kyal9",
+                      "name": "Kepala hari",
+                      "width": "fill_container",
+                      "stroke": "$garis",
+                      "strokeWidth": {
+                        "bottom": 1
+                      },
+                      "padding": [
+                        0,
+                        0,
+                        8,
+                        0
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "wdGn6",
+                          "name": "Hari",
+                          "fill": "$teks",
+                          "content": "Selasa, 18 November",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "semibold"
+                        },
+                        {
+                          "type": "text",
+                          "id": "F7IJPE",
+                          "name": "Jumlah",
+                          "fill": "$redup",
+                          "content": "1 agenda",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "b7Gl9A",
+                      "name": "Baris Selasa, 18 November",
+                      "width": "fill_container",
+                      "layout": "vertical",
+                      "children": [
+                        {
+                          "id": "n89zK",
+                          "type": "ref",
+                          "ref": "SAzIl",
+                          "name": "Agenda Rapat penggunaan ruang penyimpanan",
+                          "width": "fill_container",
+                          "descendants": {
+                            "K5scGz": {
+                              "content": "08.30"
+                            },
+                            "RuQm8": {
+                              "content": "10.00"
+                            },
+                            "svmKl": {
+                              "content": "Rapat penggunaan ruang penyimpanan"
+                            },
+                            "U5vkD": {
+                              "content": "Aula BPKAD"
+                            },
+                            "JqZ2m": {
+                              "fill": "$kartu",
+                              "stroke": "$garis"
+                            },
+                            "JqZ2m/zUCjB": {
+                              "content": "Dari surat",
+                              "fill": "$redup"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "DLVBz",
+              "type": "ref",
+              "ref": "HEeFa",
+              "name": "Bilah bawah layar",
+              "width": "fill_container",
+              "descendants": {
+                "o6aC16": {
+                  "fill": "#00000000"
+                },
+                "W34DHK": {
+                  "fill": "$redup"
+                },
+                "o7T7Y6": {
+                  "content": "Hari ini",
+                  "fontWeight": "regular",
+                  "fill": "$redup"
+                },
+                "odBUQ": {
+                  "fill": "$hover"
+                },
+                "im7UI": {
+                  "fill": "$karat"
+                },
+                "cVB6t": {
+                  "fontWeight": "medium",
+                  "fill": "$karat"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "QVYJt",
+      "x": 1705,
+      "y": 370,
+      "name": "Layar Detail agenda",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "YDAnO",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "gJZfX",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "y37F5",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Q91Zm5",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "liFnN",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Z5nCAy",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "C1gTp",
+              "name": "Tombol kembali",
+              "height": 44,
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "G6mSz1",
+                  "name": "Ikon kembali",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "arrow-left",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "text",
+                  "id": "K9lAO",
+                  "name": "Label kembali",
+                  "fill": "$redup",
+                  "content": "Kembali ke kalender",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CcQIU",
+              "name": "Judul blok",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "X5g0r",
+                  "name": "Judul agenda",
+                  "fill": "$teks",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Koordinasi penghapusan barang",
+                  "lineHeight": 1.15,
+                  "fontFamily": "Inter",
+                  "fontSize": 26,
+                  "fontWeight": "semibold"
+                },
+                {
+                  "type": "frame",
+                  "id": "K2nn1Y",
+                  "name": "Tanda sumber",
+                  "fill": "$karat",
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    10
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "dsjKz",
+                      "name": "Ikon sumber",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "pen-line",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "uvUAp",
+                      "name": "Tulis sumber",
+                      "fill": "$karat-teks",
+                      "content": "Agenda kamu · bisa diubah dari HP ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e7nop",
+              "name": "Rincian",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VAEaB",
+                  "name": "Baris Senin, 17 November 2025",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "ImJo7",
+                      "name": "Ikon Senin, 17 November 2025",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-days",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "UW6RU",
+                      "name": "Tulis Senin, 17 November 2025",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Senin, 17 November 2025",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "POckF",
+                  "name": "Baris 10.00 – 11.30 WIB",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "fhbmi",
+                      "name": "Ikon 10.00 – 11.30 WIB",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-clock",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "A7pDv",
+                      "name": "Tulis 10.00 – 11.30 WIB",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "10.00 – 11.30 WIB",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "hfEyi",
+                  "name": "Baris Ruang Rapat BPKAD",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Asmdd",
+                      "name": "Ikon Ruang Rapat BPKAD",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "map-pin",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "xysJ2",
+                      "name": "Tulis Ruang Rapat BPKAD",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Ruang Rapat BPKAD",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "y2vba",
+                  "name": "Baris Penyelenggara: Bidang Aset",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "gCyjJ",
+                      "name": "Ikon Penyelenggara: Bidang Aset",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "building-2",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HcZFV",
+                      "name": "Tulis Penyelenggara: Bidang Aset",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Penyelenggara: Bidang Aset",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "kZQgt",
+              "name": "Status rapat",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JTonp",
+                  "name": "Label status",
+                  "fill": "$redup",
+                  "content": "Status rapat",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "tdLCp",
+                  "name": "Rampung status",
+                  "width": "fill_container",
+                  "fill": "$kartu",
+                  "cornerRadius": 999,
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "gap": 4,
+                  "padding": 4,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "VL9zj",
+                      "name": "Status Belum",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "$amber-latar",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "WOVpb",
+                          "name": "Tulis Belum",
+                          "fill": "$amber",
+                          "content": "Belum",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Wo4C6",
+                      "name": "Status Berjalan",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "#00000000",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "j07Rpm",
+                          "name": "Tulis Berjalan",
+                          "fill": "$redup",
+                          "content": "Berjalan",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ELgo3",
+                      "name": "Status Selesai",
+                      "width": "fill_container",
+                      "height": 36,
+                      "fill": "#00000000",
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "Tpq6O",
+                          "name": "Tulis Selesai",
+                          "fill": "$redup",
+                          "content": "Selesai",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "medium"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "je7kh",
+              "name": "Pengingat",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis-isian",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": [
+                12,
+                14
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "BFnmr",
+                  "name": "Kiri pengingat",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "SKaS1",
+                      "name": "Ikon pengingat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "bell-ring",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ofKEY",
+                      "name": "Tulis pengingat",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Alarm 15 menit sebelum waktu mulai",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "hyQ7v",
+                  "name": "Tanda aktif",
+                  "fill": "$hijau",
+                  "content": "Aktif",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "medium"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "vNcle",
+              "name": "Peserta",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "eVDux",
+                  "name": "Label peserta",
+                  "fill": "$redup",
+                  "content": "Peserta (3)",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "qHAaa",
+                  "name": "Daftar peserta",
+                  "width": "fill_container",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "Q48BJ",
+                      "name": "Nama Budi Setiawan",
+                      "fill": "$lapis",
+                      "cornerRadius": 999,
+                      "stroke": "$garis",
+                      "strokeWidth": 1,
+                      "gap": 6,
+                      "padding": [
+                        7,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ypLAS",
+                          "name": "Tulis Budi Setiawan",
+                          "fill": "$teks",
+                          "content": "Budi Setiawan",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "zqj49",
+                      "name": "Nama Sari Wiyanto",
+                      "fill": "$lapis",
+                      "cornerRadius": 999,
+                      "stroke": "$garis",
+                      "strokeWidth": 1,
+                      "gap": 6,
+                      "padding": [
+                        7,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "f0GHcP",
+                          "name": "Tulis Sari Wiyanto",
+                          "fill": "$teks",
+                          "content": "Sari Wiyanto",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JdkaK",
+                      "name": "Nama Tri Haryanto",
+                      "fill": "$lapis",
+                      "cornerRadius": 999,
+                      "stroke": "$garis",
+                      "strokeWidth": 1,
+                      "gap": 6,
+                      "padding": [
+                        7,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "f3TKm",
+                          "name": "Tulis Tri Haryanto",
+                          "fill": "$teks",
+                          "content": "Tri Haryanto",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "XGNPs",
+              "name": "Catatan",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "dXtPf",
+                  "name": "Label catatan",
+                  "fill": "$redup",
+                  "content": "Catatan",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "text",
+                  "id": "Utqsm",
+                  "name": "Tulis catatan",
+                  "fill": "$teks",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Barang yang sudah tidak dipakai di gudang lama. Bawa daftar inventaris terakhir.",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Shhu9",
+              "name": "Baris aksi",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NNSdA",
+                  "name": "Tombol ubah",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "I5axMa",
+                      "name": "Ikon ubah",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "pen-line",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "jwGeB",
+                      "name": "Label ubah",
+                      "fill": "$karat-teks",
+                      "content": "Ubah agenda",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "C8XwVc",
+                  "name": "Tombol hapus",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "FEGJp",
+                      "name": "Ikon hapus",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "trash-2",
+                      "library": "lucide",
+                      "fill": "$salah"
+                    },
+                    {
+                      "type": "text",
+                      "id": "E88Xs",
+                      "name": "Label hapus",
+                      "fill": "$salah",
+                      "content": "Hapus",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "f2Gn9",
+      "x": 2140,
+      "y": 370,
+      "name": "Layar Agenda baru",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "K74f6",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ElUxv",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "cV8DN",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "nIWwl",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "O8YfE",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Of6tN",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "RfPs1",
+              "name": "Kepala layar",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "h0ENR",
+                  "name": "Tombol kembali",
+                  "width": 44,
+                  "height": 44,
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center"
+                },
+                {
+                  "type": "text",
+                  "id": "ukQcV",
+                  "name": "Judul layar",
+                  "fill": "$teks",
+                  "content": "Agenda baru",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": "semibold"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "z8EQNl",
+              "name": "Isian judul",
+              "width": "fill_container",
+              "height": 112,
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "Moe6M",
+                  "name": "Label judul",
+                  "fill": "$redup",
+                  "content": "Judul agenda",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "R7s4Zk",
+                  "name": "Isi judul",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis-isian",
+                  "strokeWidth": 1,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "o7ZYgP",
+                      "name": "Tulis judul",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Koordinasi penghapusan barang",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R0PYe",
+              "name": "Baris tanggal waktu",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "S5qYhY",
+                  "name": "Isian tanggal",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Wycpv",
+                      "name": "Label tanggal",
+                      "fill": "$redup",
+                      "content": "Tanggal",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "pRFI8",
+                      "name": "Isi tanggal",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$kartu",
+                      "cornerRadius": "$radius",
+                      "stroke": "$garis-isian",
+                      "strokeWidth": 1,
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        14
+                      ],
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "l4vUzn",
+                      "name": "Ikon tanggal",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-days",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KsaD8",
+                      "name": "Tulis tanggal",
+                      "fill": "$teks",
+                      "content": "Sen 17 Nov",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SVKDv",
+                  "name": "Isian waktu",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Wrqi5",
+                      "name": "Label waktu",
+                      "fill": "$redup",
+                      "content": "Waktu mulai",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "DNg66",
+                      "name": "Isi waktu",
+                      "width": "fill_container",
+                      "height": 48,
+                      "fill": "$kartu",
+                      "cornerRadius": "$radius",
+                      "stroke": "$garis-isian",
+                      "strokeWidth": 1,
+                      "gap": 8,
+                      "padding": [
+                        10,
+                        14
+                      ],
+                      "alignItems": "center"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "xA3wY",
+                      "name": "Ikon jam",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-clock",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "THhFz",
+                      "name": "Tulis waktu",
+                      "fill": "$teks",
+                      "content": "10.00",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "R3eut",
+              "name": "Isian tempat",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "xkBJf",
+                  "name": "Label tempat",
+                  "fill": "$redup",
+                  "content": "Tempat",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "o1MHhL",
+                  "name": "Isi tempat",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis-isian",
+                  "strokeWidth": 1,
+                  "gap": 8,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "alignItems": "center"
+                },
+                {
+                  "type": "icon",
+                  "id": "m2QRI",
+                  "name": "Ikon tempat",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "map-pin",
+                  "library": "lucide",
+                  "fill": "$karat"
+                },
+                {
+                  "type": "text",
+                  "id": "MLx1z",
+                  "name": "Tulis tempat",
+                  "fill": "$teks",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Ruang Rapat BPKAD",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jY5Bx",
+              "name": "Isian catatan",
+              "width": "fill_container",
+              "height": 110,
+              "layout": "vertical",
+              "gap": 6,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AXF8q",
+                  "name": "Label catatan",
+                  "fill": "$redup",
+                  "content": "Catatan (opsional)",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "frame",
+                  "id": "EuG5S",
+                  "name": "Isi catatan",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis-isian",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "L0avF",
+                      "name": "Tulis catatan",
+                      "fill": "$redup",
+                      "content": "Tulis catatan di sini…",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "v37fp0",
+              "name": "Baris pengingat",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis-isian",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": [
+                12,
+                14
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "USmP0",
+                  "name": "Kiri pengingat",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "YLb0R",
+                      "name": "Ikon pengingat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "bell-ring",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "dzfci",
+                      "name": "Tulis pengingat",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Alarm pengingat",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "w8ye5",
+                  "name": "Sakelar pengingat",
+                  "width": 52,
+                  "height": 30,
+                  "fill": "$karat",
+                  "cornerRadius": 999,
+                  "padding": 4,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 999,
+                      "id": "di4wL",
+                      "name": "Bolan sakelar",
+                      "fill": "$karat-teks",
+                      "width": 22,
+                      "height": 22
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bIio6",
+              "name": "Baris aksi",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tVFdA",
+                  "name": "Tombol simpan",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "oQ2a7",
+                      "name": "Ikon simpan",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-plus",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZyKJS",
+                      "name": "Label simpan",
+                      "fill": "$karat-teks",
+                      "content": "Simpan agenda",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LgvQY",
+                  "name": "Tombol batal",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "SRevL",
+                      "name": "Label batal",
+                      "fill": "$redup",
+                      "content": "Batal",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Z9vw9",
+      "x": 2575,
+      "y": 370,
+      "name": "Layar Akun",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "s3vEH",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "S1ofA",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "Nv58b",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "tMHjM",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "GdlkL",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "DtEtT",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "TQnvT",
+              "name": "Judul layar",
+              "fill": "$teks",
+              "content": "Akun",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "semibold"
+            },
+            {
+              "type": "frame",
+              "id": "fJ2e8",
+              "name": "Kartu profil",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 14,
+              "padding": [
+                14,
+                16
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "vYGQr",
+                  "name": "Inisial",
+                  "width": 48,
+                  "height": 48,
+                  "fill": "$karat",
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dBtHS",
+                      "name": "Tulis inisial",
+                      "fill": "$karat-teks",
+                      "content": "BS",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "PyIEZ",
+                  "name": "Rincian profil",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "fmxAc",
+                      "name": "Tulis nama",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Budi Setiawan",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "text",
+                      "id": "yBMgE",
+                      "name": "Tulis jabatan",
+                      "fill": "$redup",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Pengelola barang · Bidang Aset",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Ak1ie",
+                      "name": "Tulis email",
+                      "fill": "$redup",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "budi@magelang.go.id",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "SfpSJ",
+              "name": "Kartu perangkat",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WBaZd",
+                  "name": "Kepala perangkat",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "NZG4o",
+                      "name": "Ikon perangkat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "smartphone",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "pBEhM",
+                      "name": "Tulis perangkat",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "HP ini · Redmi Note 12",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "f3ZAxW",
+                  "name": "Rincian sesi",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "drLTI",
+                      "name": "Tulis sesi",
+                      "fill": "$redup",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Sesi aktif sejak 12 Nov 2025 · diperpanjang otomatis",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "r24aOL",
+                      "name": "Tulis batas",
+                      "fill": "$redup",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Hanya agenda milik kamu yang bisa diubah atau dihapus dari HP ini.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "p3FeUl",
+              "name": "Baris pengingat",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis-isian",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": [
+                12,
+                14
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "zw0Uf",
+                  "name": "Kiri pengingat",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "uMih0",
+                      "name": "Ikon pengingat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "bell-ring",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "KBWK0",
+                      "name": "Tulis pengingat",
+                      "fill": "$teks",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Izin notifikasi aktif",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Pcv99",
+                  "name": "Sakelar pengingat",
+                  "width": 52,
+                  "height": 30,
+                  "fill": "$karat",
+                  "cornerRadius": 999,
+                  "padding": 4,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 999,
+                      "id": "j4Toti",
+                      "name": "Bolan sakelar",
+                      "fill": "$karat-teks",
+                      "width": 22,
+                      "height": 22
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QcOkB",
+              "name": "Catatan sandi",
+              "width": "fill_container",
+              "fill": "$lapis",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 10,
+              "padding": [
+                12,
+                14
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "xCVqi",
+                  "name": "Ikon kunci",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "key-round",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "text",
+                  "id": "kzNqO",
+                  "name": "Tulis sandi",
+                  "fill": "$redup",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Ganti sandi dilakukan di situs web Bidang Aset.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "lfW46",
+              "name": "Tombol keluar",
+              "width": "fill_container",
+              "height": 48,
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 8,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "TTdAv",
+                  "name": "Ikon keluar",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "log-out",
+                  "library": "lucide",
+                  "fill": "$salah"
+                },
+                {
+                  "type": "text",
+                  "id": "gOdUX",
+                  "name": "Label keluar",
+                  "fill": "$salah",
+                  "content": "Keluar dari HP ini",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "medium"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Pd79Q",
+              "name": "Bilah bawah",
+              "width": "fill_container",
+              "fill": "$lapis",
+              "cornerRadius": 999,
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 4,
+              "padding": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "j1YBAU",
+                  "name": "Item hari ini",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "op3nJ",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-days",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IZ4IR",
+                      "fill": "$redup",
+                      "content": "Hari ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K6oig7",
+                  "name": "Item mendatang",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "d3GZa",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-clock",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "iXO7d",
+                      "fill": "$redup",
+                      "content": "Mendatang",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "o0qIID",
+                  "name": "Item akun aktif",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "$kartu",
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "gIhuD",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "user-round",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "Y5Zs7l",
+                      "fill": "$karat",
+                      "content": "Akun",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "Y49DNo",
+      "x": 3010,
+      "y": 370,
+      "name": "Layar Hapus agenda",
+      "width": 375,
+      "height": 844,
+      "fill": "$kanvas",
+      "layout": "none",
+      "children": [
+        {
+          "type": "rectangle",
+          "id": "C0BNm",
+          "x": 0,
+          "y": 0,
+          "name": "Latar redup",
+          "fill": "#0a0604cc",
+          "width": 375,
+          "height": 844
+        },
+        {
+          "type": "frame",
+          "id": "p7SJXU",
+          "x": 16,
+          "y": 468,
+          "name": "Kartu konfirmasi hapus",
+          "width": 343,
+          "fill": "#000000",
+          "cornerRadius": 16,
+          "stroke": "$garis",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 14,
+          "padding": 20,
+          "children": [
+            {
+              "type": "frame",
+              "id": "PwpN7",
+              "name": "Ikon peringatan hapus",
+              "width": 40,
+              "height": 40,
+              "fill": "$amber-latar",
+              "cornerRadius": 999,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "RKFmZ",
+                  "name": "Ikon peringatan",
+                  "width": 22,
+                  "height": 22,
+                  "icon": "triangle-alert",
+                  "library": "lucide",
+                  "fill": "$amber"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "t3VGo",
+              "name": "Judul hapus",
+              "fill": "$teks",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Hapus agenda ini?",
+              "fontFamily": "Inter",
+              "fontSize": 19,
+              "fontWeight": "semibold"
+            },
+            {
+              "type": "text",
+              "id": "CA0dC",
+              "name": "Tulis hapus",
+              "fill": "$redup",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "Alarm pengingat ikut berhenti. Agenda hilang dari kalender web dan tidak bisa dipulihkan dari HP ini.",
+              "lineHeight": 1.4,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "g8474G",
+              "name": "Baris tombol hapus",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "p8Gmm",
+                  "name": "Tombol batal hapus",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "aq3JO",
+                      "name": "Label batal hapus",
+                      "fill": "$redup",
+                      "content": "Batal",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X0EMA",
+                  "name": "Tombol hapus agenda",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$salah",
+                  "cornerRadius": "$radius",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xYs4d",
+                      "name": "Label hapus agenda",
+                      "fill": "#3a120f",
+                      "content": "Hapus agenda",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "semibold"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "fXlkO",
+      "x": 3445,
+      "y": 370,
+      "name": "Layar hari kosong",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "M8qySV",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "ae7dS",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "iQxrP",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "KeBTA",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "O1av2",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "CYgya",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "BgA8O",
+              "name": "Kepala hari",
+              "width": "fill_container",
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "koyUe",
+                  "name": "Kiri kepala",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sFDq4",
+                      "name": "Judul hari",
+                      "fill": "$teks",
+                      "content": "Jumat, 14 Nov",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": "semibold"
+                    },
+                    {
+                      "type": "text",
+                      "id": "YrfdX",
+                      "name": "Sub hari",
+                      "fill": "$redup",
+                      "content": "Tidak ada agenda",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "At5y5",
+                  "name": "Tombol agenda baru",
+                  "height": 44,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 6,
+                  "padding": [
+                    10,
+                    14
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "VwHJ9",
+                      "name": "Ikon tambah",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-plus",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MhbuX",
+                      "name": "Label tambah",
+                      "fill": "$karat-teks",
+                      "content": "Agenda baru",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jF041",
+              "name": "Kartu kosong",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                26,
+                20
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "fXZtH",
+                  "name": "Ikon kosong",
+                  "width": 56,
+                  "height": 56,
+                  "fill": "$lapis",
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Tvxdw",
+                      "name": "Ikon calendar x",
+                      "width": 26,
+                      "height": 26,
+                      "icon": "calendar-x",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "owY5m",
+                  "name": "Tulis kosong",
+                  "fill": "$teks",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Belum ada agenda hari ini.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": "medium"
+                },
+                {
+                  "type": "text",
+                  "id": "oxRwU",
+                  "name": "Tulis panduan",
+                  "fill": "$redup",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Tulis agenda baru untuk hari ini, atau cek hari berikutnya di tab Mendatang.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "W6bzw",
+              "name": "Bilah bawah",
+              "width": "fill_container",
+              "fill": "$lapis",
+              "cornerRadius": 999,
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 4,
+              "padding": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "qrIv6",
+                  "name": "Item hari ini aktif",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "$kartu",
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "yDFvA",
+                      "name": "Ikon hari ini",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-days",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "o3dc5z",
+                      "name": "Tulis hari ini",
+                      "fill": "$karat",
+                      "content": "Hari ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "fjPcN",
+                  "name": "Item mendatang redup",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "mMiwk",
+                      "name": "Ikon mendatang",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-clock",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "z3yWRX",
+                      "name": "Tulis mendatang",
+                      "fill": "$redup",
+                      "content": "Mendatang",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "LEPVP",
+                  "name": "Item akun redup",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "nC4gR",
+                      "name": "Ikon akun",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "user-round",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "MAans",
+                      "name": "Tulis akun",
+                      "fill": "$redup",
+                      "content": "Akun",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "wi6aF",
+      "x": 3880,
+      "y": 370,
+      "name": "Layar gagal muat",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "DFvO0",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "JZ0NT",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "s0PrH",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "VR6w6",
+                  "name": "Ikon wifi mati",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi-off",
+                  "library": "lucide",
+                  "fill": "$salah"
+                },
+                {
+                  "type": "icon",
+                  "id": "zlpxA",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "gphAt",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "p0XXU6",
+              "name": "Judul layar",
+              "fill": "$teks",
+              "content": "Kalender",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "semibold"
+            },
+            {
+              "type": "frame",
+              "id": "uxHJR",
+              "name": "Kartu galat",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$salah",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "G3nly",
+                  "name": "Ikon galat",
+                  "width": "fill_container",
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "MxRyM",
+                      "name": "Ikon plug",
+                      "width": 22,
+                      "height": 22,
+                      "icon": "plug-zap",
+                      "library": "lucide",
+                      "fill": "$salah"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nELCf",
+                      "name": "Judul galat",
+                      "fill": "$teks",
+                      "content": "Koneksi ke server gagal",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "QnHvL",
+                  "name": "Tulis galat",
+                  "fill": "$redup",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Periksa jaringan HP kamu lalu coba lagi. Agenda terakhir masih tersimpan di HP ini.",
+                  "lineHeight": 1.4,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "IwJsY",
+                  "name": "Tombol coba lagi",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "ckQZb",
+                      "name": "Ikon muat ulang",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "refresh-cw",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VX5w5",
+                      "name": "Label coba lagi",
+                      "fill": "$karat-teks",
+                      "content": "Coba lagi",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "qMsYt",
+              "name": "Bayangan agenda 1",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "q1dTK",
+                  "name": "Baris judul 1",
+                  "fill": "$hover",
+                  "width": 220,
+                  "height": 14
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "C76wxk",
+                  "name": "Baris waktu 1",
+                  "fill": "$hover",
+                  "width": 120,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UyMPE",
+              "name": "Bayangan agenda 2",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "HNZR9",
+                  "name": "Baris judul 2",
+                  "fill": "$hover",
+                  "width": 220,
+                  "height": 14
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "NFWzF",
+                  "name": "Baris waktu 2",
+                  "fill": "$hover",
+                  "width": 120,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "l069y",
+              "name": "Bayangan agenda 3",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                14,
+                16
+              ],
+              "children": [
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "i13vT3",
+                  "name": "Baris judul 3",
+                  "fill": "$hover",
+                  "width": 220,
+                  "height": 14
+                },
+                {
+                  "type": "rectangle",
+                  "cornerRadius": 6,
+                  "id": "CTPbX",
+                  "name": "Baris waktu 3",
+                  "fill": "$hover",
+                  "width": 120,
+                  "height": 12
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "EugFy",
+              "name": "Bilah bawah",
+              "width": "fill_container",
+              "fill": "$lapis",
+              "cornerRadius": 999,
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "gap": 4,
+              "padding": 4,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pmeXu",
+                  "name": "Item hari ini aktif galat",
+                  "width": "fill_container",
+                  "height": 44,
+                  "fill": "$kartu",
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "P4H5U",
+                      "name": "Ikon hari ini galat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-days",
+                      "library": "lucide",
+                      "fill": "$karat"
+                    },
+                    {
+                      "type": "text",
+                      "id": "acXT0",
+                      "name": "Tulis hari ini galat",
+                      "fill": "$karat",
+                      "content": "Hari ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VdgXB",
+                  "name": "Item mendatang redup galat",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "QpVaK",
+                      "name": "Ikon mendatang galat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "calendar-clock",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mFrfV",
+                      "name": "Tulis mendatang galat",
+                      "fill": "$redup",
+                      "content": "Mendatang",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "K9HV1o",
+                  "name": "Item akun redup galat",
+                  "width": "fill_container",
+                  "height": 44,
+                  "cornerRadius": 999,
+                  "gap": 6,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "K3s2lV",
+                      "name": "Ikon akun galat",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "user-round",
+                      "library": "lucide",
+                      "fill": "$redup"
+                    },
+                    {
+                      "type": "text",
+                      "id": "LEUmK",
+                      "name": "Tulis akun galat",
+                      "fill": "$redup",
+                      "content": "Akun",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "C3Yyoi",
+      "x": 4315,
+      "y": 370,
+      "name": "Layar ubah sandi",
+      "clip": true,
+      "width": 375,
+      "fill": "$kanvas",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "P6ccTW",
+          "name": "Bilah status",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "IqD7s",
+              "name": "Jam",
+              "fill": "$teks",
+              "content": "09.41",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "medium"
+            },
+            {
+              "type": "frame",
+              "id": "onPL5",
+              "name": "Ikon status",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "Yu2VX",
+                  "name": "Ikon wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "icon",
+                  "id": "TbgJS",
+                  "name": "Ikon baterai",
+                  "width": 18,
+                  "height": 18,
+                  "icon": "battery-medium",
+                  "library": "lucide",
+                  "fill": "$redup"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "r7buLx",
+          "name": "Isi layar",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            0,
+            20,
+            20,
+            20
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "G9Ibq",
+              "name": "Tombol kembali",
+              "width": "fill_container",
+              "height": 44,
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "V1sQma",
+                  "name": "Ikon kembali",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "arrow-left",
+                  "library": "lucide",
+                  "fill": "$redup"
+                },
+                {
+                  "type": "text",
+                  "id": "pLwZu",
+                  "name": "Tulis kembali",
+                  "fill": "$redup",
+                  "content": "Kembali ke akun",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "GFUZn",
+              "name": "Judul layar",
+              "fill": "$teks",
+              "content": "Ubah kata sandi",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "semibold"
+            },
+            {
+              "type": "frame",
+              "id": "P8fOUD",
+              "name": "Catatan sandi",
+              "width": "fill_container",
+              "fill": "$amber-latar",
+              "cornerRadius": "$radius",
+              "stroke": "$amber-garis",
+              "strokeWidth": 1,
+              "gap": 8,
+              "padding": [
+                10,
+                12
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "S5fwnd",
+                  "name": "Ikon info",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "info",
+                  "library": "lucide",
+                  "fill": "$amber"
+                },
+                {
+                  "type": "text",
+                  "id": "V9wASq",
+                  "name": "Tulis catatan",
+                  "fill": "$amber",
+                  "content": "Kata sandi baru minimal 8 karakter.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "TBzTj",
+              "name": "Kartu isian",
+              "width": "fill_container",
+              "fill": "$kartu",
+              "cornerRadius": "$radius",
+              "stroke": "$garis",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "y0QSer",
+                  "name": "Isian0",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "N2cA7",
+                      "name": "Label0",
+                      "fill": "$redup",
+                      "content": "Kata sandi saat ini",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "JmaA6",
+                      "name": "Kotak0",
+                      "width": "fill_container",
+                      "height": 46,
+                      "fill": "$lapis",
+                      "cornerRadius": "$radius",
+                      "stroke": "$garis-isian",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "xMHdO",
+                          "name": "Ikon0",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "key",
+                          "library": "lucide",
+                          "fill": "$redup"
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "VtNow",
+                          "name": "Titik0",
+                          "fill": "$hover",
+                          "width": 110,
+                          "height": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "sB4ru",
+                  "name": "Isian1",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jCtRQ",
+                      "name": "Label1",
+                      "fill": "$redup",
+                      "content": "Kata sandi baru",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "aE6ch",
+                      "name": "Kotak1",
+                      "width": "fill_container",
+                      "height": 46,
+                      "fill": "$lapis",
+                      "cornerRadius": "$radius",
+                      "stroke": "$garis-isian",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "lSdbA",
+                          "name": "Ikon1",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "key-round",
+                          "library": "lucide",
+                          "fill": "$redup"
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "kaP78",
+                          "name": "Titik1",
+                          "fill": "$hover",
+                          "width": 110,
+                          "height": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GZi5C",
+                  "name": "Isian2",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "hRoeY",
+                      "name": "Label2",
+                      "fill": "$redup",
+                      "content": "Tulis ulang sandi baru",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "medium"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "v1dCw",
+                      "name": "Kotak2",
+                      "width": "fill_container",
+                      "height": 46,
+                      "fill": "$lapis",
+                      "cornerRadius": "$radius",
+                      "stroke": "$garis-isian",
+                      "strokeWidth": 1,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "zzpXi",
+                          "name": "Ikon2",
+                          "width": 18,
+                          "height": 18,
+                          "icon": "badge-check",
+                          "library": "lucide",
+                          "fill": "$redup"
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 4,
+                          "id": "r3QSSf",
+                          "name": "Titik2",
+                          "fill": "$hover",
+                          "width": 110,
+                          "height": 12
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "e1BewJ",
+              "name": "Baris aksi",
+              "width": "fill_container",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "M90v1",
+                  "name": "Tombol simpan sandi",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$karat",
+                  "cornerRadius": "$radius",
+                  "gap": 8,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Kdluc",
+                      "name": "Ikon simpan",
+                      "width": 18,
+                      "height": 18,
+                      "icon": "check",
+                      "library": "lucide",
+                      "fill": "$karat-teks"
+                    },
+                    {
+                      "type": "text",
+                      "id": "rmkBv",
+                      "name": "Label simpan",
+                      "fill": "$karat-teks",
+                      "content": "Simpan",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "l6jkZ6",
+                  "name": "Tombol batal sandi",
+                  "width": "fill_container",
+                  "height": 48,
+                  "fill": "$kartu",
+                  "cornerRadius": "$radius",
+                  "stroke": "$garis",
+                  "strokeWidth": 1,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "tZ9TT",
+                      "name": "Label batal",
+                      "fill": "$teks",
+                      "content": "Batal",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "kanvas": {
+      "type": "color",
+      "value": "#140e0b"
+    },
+    "kartu": {
+      "type": "color",
+      "value": "#1e1815"
+    },
+    "lapis": {
+      "type": "color",
+      "value": "#231c1a"
+    },
+    "hover": {
+      "type": "color",
+      "value": "#302623"
+    },
+    "garis": {
+      "type": "color",
+      "value": "#3a302d"
+    },
+    "garis-isian": {
+      "type": "color",
+      "value": "#7d6e67"
+    },
+    "teks": {
+      "type": "color",
+      "value": "#efeeea"
+    },
+    "redup": {
+      "type": "color",
+      "value": "#b2a99f"
+    },
+    "karat": {
+      "type": "color",
+      "value": "#f87d3b"
+    },
+    "karat-teks": {
+      "type": "color",
+      "value": "#361405"
+    },
+    "hijau": {
+      "type": "color",
+      "value": "#84cc87"
+    },
+    "hijau-latar": {
+      "type": "color",
+      "value": "#102511"
+    },
+    "hijau-garis": {
+      "type": "color",
+      "value": "#3f6a41"
+    },
+    "amber": {
+      "type": "color",
+      "value": "#f8c479"
+    },
+    "amber-latar": {
+      "type": "color",
+      "value": "#331f00"
+    },
+    "amber-garis": {
+      "type": "color",
+      "value": "#876125"
+    },
+    "salah": {
+      "type": "color",
+      "value": "#ffaeaa"
+    },
+    "radius": {
+      "type": "number",
+      "value": 10
+    },
+    "gap": {
+      "type": "number",
+      "value": 16
+    }
+  },
+  "fileToken": "bb7287f0-5034-4c3e-b396-b93e37ee85ba"
+}
